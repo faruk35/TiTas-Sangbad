@@ -59,7 +59,7 @@ body {
 /* Image area */
 .img-container {
   flex: 1 1 auto;
-  background: #0f172a;
+  background: #0d8304;
   padding: 12px;
   display: flex;
   align-items: center;
@@ -132,7 +132,7 @@ body {
   height: 27px;
   background: linear-gradient(90deg,#5ddf4f,#022c0f);
   color: #ffffff;
-  font-size: 13px;
+  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
