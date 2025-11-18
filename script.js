@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let hour = now.getHours();
     let minute = now.getMinutes();
     let second = now.getSeconds();
-    const ampm = hour >= 12 ? "PM" : "AM";
+    const ampm = hour >= 12 ? "pm" : "am";
     hour = hour % 12 || 12;
     function toBn(s){ return s.replace(/[0-9]/g, d => engToBn[d]); }
     return `${toBn(day)} ${month} ${toBn(year)} | ${toBn(String(hour).padStart(2,'0'))}:${toBn(String(minute).padStart(2,'0'))}:${toBn(String(second).padStart(2,'0'))} ${ampm}`;
