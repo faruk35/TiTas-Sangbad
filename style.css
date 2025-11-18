@@ -1,8 +1,8 @@
 /* Reset & base */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --card-width: 500px;
-  --card-height: 640px;
+  --card-width: 600px;
+  --card-height: 600px;
   --accent: #0f172a;
 }
 .sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
@@ -38,7 +38,7 @@ body {
 
 /* Logo */
 .logo-container {
-  height: 50px;
+  height: 55px;
   width: 100%;
   background: #f3f2f2;
   display: flex;
@@ -50,8 +50,8 @@ body {
 }
 .logo-img {
   position: absolute;
-  height: 220px;
-  top: -41px;
+  height: 210px;
+  top: -36px;
   max-width: 100%;
   object-fit: contain;
 }
@@ -119,13 +119,13 @@ body {
 .text-container .title {
   font-size: 18px;
   line-height: 1.4;
-  color: #0f172a; /* dark text for contrast */
+  color: #000000; /* dark text for contrast */
   margin: 0;
 }
 
 /* Time container */
 .time-container {
-  height: 36px;
+  height: 27px;
   background: linear-gradient(90deg,#5ddf4f,#022c0f);
   color: #ffffff;
   font-size: 13px;
