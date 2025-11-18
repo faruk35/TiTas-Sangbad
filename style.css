@@ -1,89 +1,73 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Reset & base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --card-width: 500px;
+  --card-height: 640px;
+  --accent: #0f172a;
 }
+.sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
-.tiro-bangla-regular {
-  font-family: "Tiro Bangla", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.tiro-bangla-regular-italic {
-  font-family: "Tiro Bangla", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
+/* Font family */
+.tiro-bangla-regular { font-family: "Tiro Bangla", serif; font-style: normal; }
+.tiro-bangla-regular-italic { font-family: "Tiro Bangla", serif; font-style: italic; }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: #384050;
-}
-
-/* পুরো পেজে কার্ডকে সেন্টার করা */
-.page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 18px;
 }
 
-/* মূল কার্ড */
+/* কেন্দ্রীয় পেজ কন্টেইনার */
+.page { width:100%; display:flex; align-items:center; justify-content:center; }
+
+/* Card */
 .card {
-  max-width: 500px;
-  height: 600px;
-  background-color: #fbbf24;
-  /* amber-300 */
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(202, 168, 168, 0.15);
+  width: var(--card-width);
+  height: var(--card-height);
+  background: #fbbf24;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-/* Logo part */
+/* Logo */
 .logo-container {
-  position: relative;
+  height: 70px;
+  width: 100%;
+  background: #f3f2f2;
   display: flex;
+  align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 100%;
-  background-color: #f3f2f2;
+  position: relative;
+  padding: 6px 12px;
 }
-
-.logo-container img {
-  height: 249px;
-  position: absolute;
-  top: -45px;
-}
-
 .logo-img {
-  width: 100%;
-  height: 100%;
+  max-height: 56px;
+  max-width: 90%;
   object-fit: contain;
-  /* অথবা cover */
 }
 
-/* Image container */
+/* Image area */
 .img-container {
-  flex: 1;
-  background-color: #0f172a;
-  /* dark background */
+  flex: 1 1 auto;
+  background: #0f172a;
   padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .img-preview {
   width: 100%;
   height: 100%;
-  max-height: 300px;
+  max-height: 320px;
   border-radius: 10px;
-  background-color: #e5e7eb;
+  background: #e5e7eb;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -91,57 +75,99 @@ body {
   justify-content: center;
 }
 
-/* প্রিভিউ ইমেজ */
-#previewImage {
+/* preview image covers area but keeps aspect ratio */
+.img-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none;
-  /* শুরুতে লুকানো থাকবে */
+  display: none; /* becomes block when image selected */
 }
 
-/* Placeholder টেক্সট */
+/* placeholder sits above image */
 .placeholder {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   color: #4b5563;
   font-size: 14px;
   text-align: center;
-  padding: 0 10px;
+  padding: 10px;
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* ফাইল ইনপুট – পুরো প্রিভিউ এরিয়াকে ক্লিকেবল করা */
+/* full-area file input to make whole preview clickable */
 #imageInput {
   position: absolute;
   inset: 0;
   opacity: 0;
   cursor: pointer;
+  z-index: 3;
 }
 
 /* Text container */
 .text-container {
-  max-height: 220px;
-  /* Tailwind এর max-h-44 = 11rem */
-  background-color: #f7f7f7;
-  background-image: url('./image/Gemini_Generated_Image_yjrtdmyjrtdmyjrt.png');
-  color: white;
-  padding: 12px;
-  overflow-y: hidden;
-  font-size: 14px;
+  background: #fafafa;
+  padding: 14px;
+  max-height: 160px;
+  overflow: hidden;
+}
+.text-container .title {
+  font-size: 18px;
   line-height: 1.4;
+  color: #0f172a; /* dark text for contrast */
+  margin: 0;
 }
 
-/* Time bar নিচে */
+/* Time container */
 .time-container {
-  height: 20px;
-  background-color: #15803d;
-  /* green-700 */
+  height: 36px;
+  background: linear-gradient(90deg,#5ddf4f,#022c0f);
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   display: flex;
   align-items: center;
-  justify-content: end;
-  padding-right: 15px;
+  justify-content: flex-end;
+  padding: 0 12px;
+  gap: 6px;
 }
 
-.time-container span {
-  padding-right: 4px;
+/* Navigation panel */
+.navigation {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  background: rgba(255,255,255,0.98);
+  color: var(--accent);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 320px;
+  max-width: 92vw;
+  align-items: stretch;
+  cursor: grab;
 }
+.navigation:active { cursor: grabbing; }
+.navigation .controls-header { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.navigation input[type="text"] {
+  padding: 8px 10px; border-radius:6px; border:1px solid #e5e7eb; font-size:14px;
+}
+.controls-row { display:flex; gap:8px; align-items:center; }
+.navigation input[type="color"] { width:44px; height:34px; padding:0; border:none; cursor:pointer; }
+.navigation button { padding:8px 10px; border-radius:6px; border:none; background:#0f172a; color:#fff; cursor:pointer; font-weight:600; }
+.navigation .download { background: linear-gradient(90deg, #10b981, #065f46); margin-top:6px; }
+.controls-footnote { font-size:12px; color:#6b7280; }
+
+/* responsive tweak */
+/* @media (max-width: 520px) {
+  .card { width: min(92vw, 420px); height: auto; }
+  .img-preview { max-height: 220px; }
+  .text-container .title { font-size: 16px; }
+  .navigation { left: 50%; top: 55%; transform: translate(-50%,-50%); min-width: 90vw; }
+} */
