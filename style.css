@@ -118,6 +118,7 @@ body {
   padding-bottom: 20px;
   max-height: 160px;
   overflow: hidden;
+  text-align: center;
 }
 .text-container .title {
   font-size: 18px;
