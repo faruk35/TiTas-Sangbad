@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>Photo Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="page">
+  <div class="page tiro-bangla-regular-italic">
     <div class="card">
       <!-- Logo part -->
       <div class="logo-container">
-        <!-- এখানে তোমার লোগো ফাইলের path দাও -->
         <img src="./image/titas-log.png" alt="Logo" class="logo-img" />
       </div>
 
@@ -21,7 +24,7 @@
           <span id="placeholderText" class="placeholder">
             ক্লিক করে ছবি আপলোড করুন / বাছাই করুন
           </span>
-          <input type="file" id="imageInput" accept="image/*" title="Upload image"/>
+          <input type="file" id="imageInput" accept="image/*" title="Upload image" />
         </div>
       </div>
 
@@ -40,4 +43,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
