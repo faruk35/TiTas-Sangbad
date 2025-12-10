@@ -144,7 +144,7 @@ body {
 /* Navigation panel */
 .navigation {
   position: fixed;
-  left: 50%;
+  left: 20%;
   top: 50%;
   transform: translate(-50%,-50%);
   z-index: 9999;
